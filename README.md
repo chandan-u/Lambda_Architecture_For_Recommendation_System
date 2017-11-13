@@ -1,15 +1,23 @@
 
 # About:
 
-This project is End to End ETL pipleline of MovielensDataset for training a recommendation system.The end to end workflow is automated using Apache Airflow. 
+An implementation of Recommendation system using Lambda Architecture.
 
-Each pipeline is executed as Directed Acyclic graph using the Airflow
+Lambda Architecture design helps in deploying production/real time predictive models. This kind of architecture gives the best of batch and stream processing of data.
 
-It uses spark for transformations. 
+This project imitates/mimic production scenario of recommender-systems.
 
-**NOTE: This code requires python version 3.5. Not tested for other versions**
+## batch
 
+Code for batch processing
 
+## speed
+
+Code for stream processing
+
+## serving
+
+API exposed to the end user
 
 ## Transformations
 
@@ -28,7 +36,11 @@ This is created by the piplelines where result dataset is generated
 
 For the now the dag should be triggered externally. Dag's can be scheduled by enabling start_time in default_args or throug CLI
 
+
+
 # Setup
+
+**NOTE: This code requires python version 3.5. Not tested for other versions**
 
 
 ## Steps to configure Airflow
@@ -36,13 +48,13 @@ For the now the dag should be triggered externally. Dag's can be scheduled by en
 export AIRFLOW_HOME = ~/airflow/
 
 
-## install Requirements: 
+## install Requirements:
 
 pip install -r requirements.txt
 
 
 
-## Configure ~/airflow/airflow.cfg 
+## Configure ~/airflow/airflow.cfg
 
 dags_folder = /<project-location>/dags/
 
@@ -50,7 +62,7 @@ dags_folder = /<project-location>/dags/
 ## Steps To run Airflow server:
 
 
-airflow webserver -p 8080 
+airflow webserver -p 8080
 airflow scheduler
 airflow worker
 
@@ -83,13 +95,3 @@ default address: localhost:8080
 
 
 # Pending tasks/future points
-
-1. Setup a pipeline to train a simple predicitve model    
-2. Working on subbranch instead of master    
-3. Create Config file: To handle spark & files configuration (use ConfigParser for this)    
-4. Modify scripts/transform.py to function 
-
-
-
-
-
